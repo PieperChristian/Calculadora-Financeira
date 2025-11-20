@@ -56,12 +56,14 @@ export class JurosSimples {
 
         return inputs.capital * ( 1 + inputs.taxa * inputs.tempo );
     }
+
     public static montantePorCapitalJuros(inputs: EntradasMontante['CapitalJuros']): number {
         ValidadoresJuros.validarCapital(inputs.capital);
         ValidadoresJuros.validarJuros(inputs.juros);
 
         return inputs.capital + inputs.juros;
     }
+
     public static montantePorJurosTaxaTempo(inputs: EntradasMontante['JurosTaxaTempo']): number {
         ValidadoresJuros.validarJuros(inputs.juros);
         ValidadoresJuros.validarTaxa(inputs.taxa);
@@ -77,6 +79,7 @@ export class JurosSimples {
 
         return inputs.juros / ( inputs.capital * inputs.tempo );
     }
+
     public static taxaPorCapitalMontanteTempo(inputs: EntradasTaxa['CapitalMontanteTempo']): number {
         ValidadoresJuros.validarCapital(inputs.capital);
         ValidadoresJuros.validarMontante(inputs.montante);
@@ -84,6 +87,7 @@ export class JurosSimples {
         
         return ( inputs.montante / inputs.capital - 1 ) / inputs.tempo;
     }
+
     public static taxaPorJurosMontanteTempo(inputs: EntradasTaxa['JurosMontanteTempo']): number {
         ValidadoresJuros.validarJuros(inputs.juros);
         ValidadoresJuros.validarMontante(inputs.montante);
@@ -99,6 +103,7 @@ export class JurosSimples {
 
         return inputs.juros / ( inputs.capital * inputs.taxa );
     }
+
     public static tempoPorCapitalMontanteTaxa(inputs: EntradasTempo['CapitalMontanteTaxa']): number {
         ValidadoresJuros.validarCapital(inputs.capital);
         ValidadoresJuros.validarMontante(inputs.montante);
@@ -106,6 +111,7 @@ export class JurosSimples {
 
         return ( inputs.montante / inputs.capital - 1 ) / inputs.taxa;
     }
+    
     public static tempoPorJurosMontanteTaxa(inputs: EntradasTempo['JurosMontanteTaxa']): number {
         ValidadoresJuros.validarJuros(inputs.juros);
         ValidadoresJuros.validarMontante(inputs.montante);
